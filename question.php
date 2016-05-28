@@ -37,6 +37,10 @@ require_once($CFG->dirroot . '/question/type/multichoice/question.php');
 class qtype_oumultiresponse_question extends qtype_multichoice_multi_question
         implements question_automatically_gradable_with_countback {
 
+    public function get_renderer(moodle_page $page) {
+        return $page->get_renderer($this->qtype->plugin_name());
+    }
+
     public function make_behaviour(question_attempt $qa, $preferredbehaviour) {
         if ($preferredbehaviour == 'interactive') {
             return question_engine::make_behaviour(

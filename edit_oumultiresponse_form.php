@@ -37,12 +37,14 @@ class qtype_oumultiresponse_edit_form extends question_edit_form {
         $mform->addElement('advcheckbox', 'shuffleanswers',
                 get_string('shuffleanswers', 'qtype_multichoice'), null, null, array(0, 1));
         $mform->addHelpButton('shuffleanswers', 'shuffleanswers', 'qtype_multichoice');
-        $mform->setDefault('shuffleanswers', 1);
+        $mform->setDefault('shuffleanswers', 0);
 
+        $numberingstyles = qtype_multichoice::get_numbering_styles();
+        $numberingstyles['selecttext'] = get_string('answernumberingselecttext', 'qtype_oumultiresponse');
         $mform->addElement('select', 'answernumbering',
                 get_string('answernumbering', 'qtype_multichoice'),
-                qtype_multichoice::get_numbering_styles());
-        $mform->setDefault('answernumbering', 'abc');
+                        $numberingstyles);
+        $mform->setDefault('answernumbering', 'selecttext');
 
         $this->add_per_answer_fields($mform, get_string('choiceno', 'qtype_multichoice', '{no}'),
                 null, max(5, QUESTION_NUMANS_START));

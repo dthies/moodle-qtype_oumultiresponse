@@ -1,3 +1,14 @@
+.que.oumultiresponse .formulation .selecttext .answer input[type="checkbox"]:checked+label {
+    color: red;
+    background-color: #fdd
+}
+.que.oumultiresponse .formulation .selecttext .answer input {
+    display: none}
+.que.oumultiresponse .formulation .selecttext .answer div.r0,
+.que.oumultiresponse .formulation .selecttext .answer div.r1 {
+    display: inline;
+    padding: 0}
+
 .que.oumultiresponse .answer .specificfeedback {
     display: inline;
     padding: 0 0.7em;
